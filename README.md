@@ -27,13 +27,16 @@ Função para realizar buscas na versão mais recente do portal SpeciesLink.net.
    - MaxRecords: Número máximo de registros a serem retornados, deve ser maior que 0.
    - file.format: Formato do arquivo de saída (csv ou rds).
    - compress: Boleano que indica se o arquivo de saída deve ser compactado, o padrão é FALSE.
+Mais infomações sobre os argumentos usados na função podem ser consultados em: https://specieslink.net/ws/1.0/.
 
 A função rspeciesLink2.0 retorna um data frame com registros recuperados da API speciesLink. O conteúdo inclui informações taxonômicas, localização, tipo de registro e outros metadados, dependendo dos filtros aplicados. Se solicitado (save = TRUE), os dados também podem ser salvos em arquivos csv ou rds. Caso a consulta não retorne resultados, um aviso será emitido.
 
+
 ``` r
+#Uso básico para encontrar espécies vegetais ocorrentes em uma dada área (aii_bb).
+aii_bb <-c("-35.060998", "-7.461548", "-34.801723", "-7.296315")
 rspeciesLink2.0(apikey= "SUA API", bbox = aii_bb,
-                   save=F, file.format="csv", stateProvince = "Paraíba", 
+                   save=F, file.format="csv",  
                    Scope = "plants", Synonyms = "flora2020")
                    
-
 ```
